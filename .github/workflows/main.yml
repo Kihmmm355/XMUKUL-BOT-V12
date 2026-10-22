@@ -1,28 +1,29 @@
 
-name: "📌 GOAT ✚ MIRAI ☠️"
+name: Xrahat-BoT
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
-  workflow_dispatch:
 
 jobs:
   run-bot:
     runs-on: ubuntu-latest
-    timeout-minutes:  timeout_placeholder
+    timeout-minutes: 5
+
     steps:
-      - name: 📥 Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: 🟢 Setup Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: 📦 Install Dependencies
+      - name: Install dependencies
         run: npm install
 
-      - name: 🚀 Start Bot
-        run: node index.js
+      - name: Check bot configuration
+        run: node --check Xrahat.js
         
